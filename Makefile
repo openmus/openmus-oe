@@ -51,7 +51,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
-        $(CURDIR)/meta-openpmus \
+        $(CURDIR)/meta-openmus \
 	$(CURDIR)/meta-azbox \
 	$(CURDIR)/meta-local 
 
