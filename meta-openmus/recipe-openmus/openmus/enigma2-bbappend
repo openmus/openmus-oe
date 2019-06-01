@@ -1,0 +1,30 @@
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+MAINTAINER = "OpenMus Developers"
+
+SRC_URI += " \
+        Set-default-skin-pax.patch \
+        "
+
+RDEPENDS_${PN} += "\
+    ${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "glibc-gconv-cp1250", d)} \    
+    ${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2", "", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "hiaccel", "dinobot-libs-${MACHINE}", "", d)} \
+    "
+
+RRECOMMENDS_${PN} = "\
+	tzdata enigma2-plugin-skins-pax enigma2-plugin-skins-satdreamgr-hd-transpba \
+	hotplug-e2-helper \
+	glibc-gconv-utf-16 \
+	python-sendfile \
+	${@bb.utils.contains("MACHINE_FEATURES", "smallflash", "", "ofgwrite", d)} \
+	virtual/enigma2-mediaservice \
+"
+
+do_openpli_branding() {
+	if [ -n "${BRANDINGDIR}" -a -d "${BRANDINGDIR}/enigma2" ] ; then
+		cp -r --preserve=mode,links ${BRANDINGDIR}/enigma2/* ${S}/data/
+	fi
+}
+
+addtask openpli_branding after do_unpack before do_configure

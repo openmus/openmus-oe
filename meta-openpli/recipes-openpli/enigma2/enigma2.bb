@@ -98,23 +98,13 @@ RDEPENDS_${PN}-build-dependencies = "\
 
 inherit gitpkgv pythonnative
 
-PV = "2.7+git${SRCPV}"
-PKGV = "2.7+git${GITPKGV}"
+ENIGMA2_BRANCH = "master"
 
-ENIGMA2_BRANCH ?= "develop"
-GITHUB_URI ?= "git://github.com"
-
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
-			file://01-set-default-debug-level-at-4.patch \
-			file://02-fix-build-openssl111.patch \
-			file://03-workaround-for-dns-no-dhcp.patch \
-			file://04-restore-last-update-date.patch \
-			file://07-Do-not-use-o-option-for-ip-busybox.patch \
-			file://08-enigma2-adapt-network-to-new-ip-formatting.patch \
-			file://09-use-functional-depout-macro.patch \
-			file://010-define-deprecated-macros.patch \
-			file://011-fix-hardware-name.patch \
-			file://012-set-default-hide-channel-list-radio.patch \
+SRC_URI = "git://github.com/openmus/enigma2.git;protocol=http;branch=${ENIGMA2_BRANCH} \
+			file://workaround-for-dns-no-dhcp.patch \
+			file://enigma2-adapt-network-to-new-ip-formatting.patch \
+			file://use-functional-depout-macro.patch \
+			file://define-deprecated-macros.patch \
 			"
 
 LDFLAGS_prepend = " -lxml2 "

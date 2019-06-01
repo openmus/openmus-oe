@@ -1,10 +1,10 @@
 SUMMARY = "Hardware drivers for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
-LICENSE = "CLOSED"
+#LICENSE = "CLOSED"
 require conf/license/license-close.inc
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
+LICENSE = "CLOSED"
 KV = "3.9.2-opensat"
 
 SRCDATE = "20130917"

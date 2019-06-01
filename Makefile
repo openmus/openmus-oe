@@ -51,9 +51,9 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-webserver \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
+        $(CURDIR)/meta-azbox \
         $(CURDIR)/meta-openmus \
-	$(CURDIR)/meta-azbox \
-	$(CURDIR)/meta-local 
+        $(CURDIR)/meta-local 
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
@@ -87,7 +87,8 @@ all: init
 	@echo "	or:"
 	@echo
 	@echo " cd $(BUILD_DIR)"
-	@echo " source env.source"
+	@echo " 
+
 	@echo " MACHINE=... bitbake openpli-enigma2-image"
 	@echo
 	@echo "	or, if you want to build not just the image, but the optional packages in the feed as well:"
