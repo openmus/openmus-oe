@@ -10,20 +10,13 @@ EXTRA_OECONF += " \
 			--with-ads \
 			--with-sockets-dir=${localstatedir}/run \
 			--with-logfilebase=${localstatedir}/log/samba \
-			--without-ad-dc \
 			--without-dnsupdate \
 			--without-profiling-data \
 			--without-quotas \
 			--without-syslog \
 			--without-winbind \
 			--disable-iprint \
-			--disable-python \
 			--nopyc \
-			"
-
-EXTRA_OECONF_remove = " \
-			--with-profiling-data \
-			--with-sockets-dir=/run/samba \
 			"
 
 SRC_URI += " \
@@ -113,9 +106,9 @@ if [ -z "$D" ]; then
 fi
 
 # add smbpass support to pam.d
-grep -v "pam_smbpass.so" $D/etc/pam.d/common-password > $D/tmp/common-password
-printf "password\toptional\t\t\tpam_smbpass.so nullok use_authtok use_first_pass\n" >> $D/tmp/common-password
-mv $D/tmp/common-password $D/etc/pam.d/common-password
+grep -v "pam_smbpass.so" $D${sysconfdir}/pam.d/common-password > $D/var/tmp/common-password
+printf "password\toptional\t\t\tpam_smbpass.so nullok use_authtok use_first_pass\n" >> $D/var/tmp/common-password
+mv $D/var/tmp/common-password $D${sysconfdir}/pam.d/common-password
 }
 
 pkg_prerm_${BPN}-common() {

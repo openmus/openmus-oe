@@ -52,7 +52,6 @@ BBLAYERS ?= \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
         $(CURDIR)/meta-azbox \
-        $(CURDIR)/meta-openmus \
         $(CURDIR)/meta-local 
 
 CONFFILES = \
