@@ -2,17 +2,6 @@ diff --git a/lib/python/Components/Network.py b/lib/python/Components/Network.py
 index 34b8d7bf2..48a02538f 100644
 --- a/lib/python/Components/Network.py
 +++ b/lib/python/Components/Network.py
-@@ -164,6 +164,10 @@ class Network:
- 		for nameserver in self.nameservers:
- 			fp.write("nameserver %d.%d.%d.%d\n" % tuple(nameserver))
- 		fp.close()
-+		fp = file('/etc/nameserversdns.conf', 'w')
-+		for nameserver in self.nameservers:
-+			fp.write("nameserver %d.%d.%d.%d\n" % tuple(nameserver))
-+		fp.close()
- 
- 	def loadNetworkConfig(self,iface,callback = None):
- 		interfaces = []
 @@ -216,7 +220,13 @@ class Network:
  			# save configured interfacelist
  			self.configuredNetworkAdapters = self.configuredInterfaces

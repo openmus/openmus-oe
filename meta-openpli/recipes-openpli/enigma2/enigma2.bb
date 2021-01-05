@@ -101,11 +101,11 @@ inherit gitpkgv pythonnative
 PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "develop"
-GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
-			file://define-deprecated-macros.patch \
-			"
+ENIGMA2_BRANCH ?= "master"
+#GITHUB_URI ?= "git://github.com"
+SRC_URI = "git://github.com/openmus/enigma2.git \
+           file://workaround-for-dns-no-dhcp.patch \
+           "
 
 LDFLAGS_prepend = " -lxml2 "
 
