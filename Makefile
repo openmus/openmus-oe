@@ -52,6 +52,7 @@ BBLAYERS ?= \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
         $(CURDIR)/meta-azbox \
+        $(CURDIR)/meta-vuplus \
         $(CURDIR)/meta-local 
 
 CONFFILES = \
