@@ -1,30 +1,34 @@
-DEFAULT_PREFERENCE = "1"
-
-include gstreamer1.0-plugins-ugly.inc
-
+LICENSE = "GPLv2+ & LGPLv2.1+ & LGPLv2+"
+LICENSE_FLAGS = "commercial"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
-					file://tests/check/elements/xingmux.c;beginline=1;endline=21;md5=4c771b8af188724855cb99cadd390068 \
-					"
+                    file://tests/check/elements/xingmux.c;beginline=1;endline=21;md5=4c771b8af188724855cb99cadd390068 \
+"
 
-SRCREV_FORMAT = "base"
+require gstreamer1.0-plugins-common.inc
 
-SRC_URI = " git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=master;name=base \
-			git://anongit.freedesktop.org/gstreamer/common;destsuffix=git/common;name=common \
-			"
+DEPENDS += "gstreamer1.0-plugins-base"
 
-SRC_URI += "file://001-introspection.m4-prefix-pkgconfig-paths-with-PKG_CON.patch \
-			"
- 
-S = "${WORKDIR}/git"
+GST_PLUGIN_SET_HAS_EXAMPLES = "0"
 
-inherit gitpkgv
+SRC_URI = "git://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git;protocol=https;branch=1.18;name=gst_plugins_ugly"
 
-GST_VERSION_FULL = "1.17.0.1"
-PV = "${GST_VERSION_FULL}+git${SRCPV}"
-PKGV = "${GST_VERSION_FULL}+git${GITPKGV}"
+PACKAGECONFIG ??= " \
+    ${GSTREAMER_ORC} \
+    a52dec mpeg2dec \
+    cdio dvdread amrnb amrwb \
+"
 
-do_configure_prepend() {
-	cd ${S}
-	./autogen.sh --noconfigure
-	cd ${B}
-}
+PACKAGECONFIG[a52dec]   = "-Da52dec=enabled,-Da52dec=disabled,liba52"
+PACKAGECONFIG[amrnb]    = "-Damrnb=enabled,-Damrnb=disabled,opencore-amr"
+PACKAGECONFIG[amrwb]    = "-Damrwbdec=enabled,-Damrwbdec=disabled,opencore-amr"
+PACKAGECONFIG[cdio]     = "-Dcdio=enabled,-Dcdio=disabled,libcdio"
+PACKAGECONFIG[dvdread]  = "-Ddvdread=enabled,-Ddvdread=disabled,libdvdread"
+PACKAGECONFIG[mpeg2dec] = "-Dmpeg2dec=enabled,-Dmpeg2dec=disabled,mpeg2dec"
+PACKAGECONFIG[x264]     = "-Dx264=enabled,-Dx264=disabled,x264"
+
+EXTRA_OEMESON += " \
+    -Dsidplay=disabled \
+"
+
+FILES_${PN}-amrnb += "${datadir}/gstreamer-1.0/presets/GstAmrnbEnc.prs"
+FILES_${PN}-x264 += "${datadir}/gstreamer-1.0/presets/GstX264Enc.prs"
