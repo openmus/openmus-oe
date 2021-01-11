@@ -53,8 +53,8 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openpli \
 	$(CURDIR)/meta-openmus \
         $(CURDIR)/meta-azbox \
-        $(CURDIR)/meta-vuplus \
-        $(CURDIR)/meta-local 
+        $(CURDIR)/meta-vuplus 
+ 
 
 CONFFILES = \
 	$(TOPDIR)/env.source \
