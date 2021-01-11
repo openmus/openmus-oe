@@ -1,1 +1,9 @@
-To build an image, start reading here: https://wiki.openpli.org/Information_for_Developers
+Experimental build environment based on OpenPli (unofficial).
+
+-Submodules bitbake, openembedded-core and meta-openembedded from master branch,<br>
+-GCC 10.2.0<br>
+-Glibc 2.32<br>
+-GStreamer 1.18.1<br>
+-Python 2.7.18<br>
+
+==========================================================
