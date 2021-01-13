@@ -18,12 +18,12 @@ MACHINE_EXTRA_RRECOMMENDS += " \
 
 GST_VERSION = "1.0"
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix --with-azbox"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix "
 
 MACHINE_FEATURES += " kernel26 alsa usbhost wifi nl80211 3dtv switchoff lpcm textlcd 32bpp hdtv dvbapi5 dvb-c blindscan-dvbs boxmodel HDMI"
 
 PREFERRED_VERSION_linux-azbox = "3.9.2"
-PREFERRED_VERSION_linux-libc-headers = "5.0"
+PREFERRED_VERSION_linux-libc-headers = "5.10"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
@@ -37,16 +37,12 @@ include conf/machine/include/autoload-filesystems.inc
 
 SYSVINIT_ENABLED_GETTYS = ""
 
+BLINDSCAN_BINARY = "avl_azbox_blindscan"
+
 EXTRA_IMAGEDEPENDS += " \
-    enigma2-plugin-systemplugins-rtisys \
-    enigma2-plugin-systemplugins-videosettingssetup \
     kmod \
     "
 
-MACHINE_EXTRA_RDEPENDS += " \
-    enigma2-plugin-systemplugins-rtisys \
-    enigma2-plugin-systemplugins-videosettingssetup \
-    "
 
 # Add "MACHINEBUILD" override for recipes
 #MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"
