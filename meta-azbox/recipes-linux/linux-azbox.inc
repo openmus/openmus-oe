@@ -62,6 +62,8 @@ do_sizecheck() {
                 fi
         fi
 }
+
+	
 do_sizecheck[dirs] = "${B}"
 
 addtask sizecheck before do_install after do_strip

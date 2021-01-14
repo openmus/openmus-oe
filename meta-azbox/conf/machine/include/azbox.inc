@@ -15,6 +15,10 @@ MACHINE_EXTRA_RRECOMMENDS += " \
     azbox-compat \
     kernel-module-cifs \
     "
+    
+IMAGE_CMD_prepend = "\
+	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
+	"
 
 GST_VERSION = "1.0"
 
