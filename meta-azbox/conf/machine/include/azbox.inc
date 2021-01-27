@@ -15,10 +15,6 @@ MACHINE_EXTRA_RRECOMMENDS += " \
     azbox-compat \
     kernel-module-cifs \
     "
-    
-IMAGE_CMD_prepend = "\
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-	"
 
 GST_VERSION = "1.0"
 
@@ -38,9 +34,34 @@ require conf/machine/include/tune-mips32.inc
 require conf/machine/include/soc-family.inc
 include conf/machine/include/autoload-filesystems.inc
 
-
 SYSVINIT_ENABLED_GETTYS = ""
 
+KERNEL_EXTRA_CMD = "--disable-compressor=lzo "
+
+IMAGE_FSTYPES ?= "jffs2"
+
+EXTRA_IMAGECMD_jffs2 = " -p 0x800 -e 0x20000 -n -l"
+
+IMAGE_CMD_jffs2_prepend = " \
+    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
+    rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
+    mkdir -p ${DEPLOY_DIR_IMAGE}/USB; \
+    mkdir -p ${DEPLOY_DIR_IMAGE}/WEBIF; \
+    rm -fR ${IMAGE_ROOTFS}/boot/*; \
+    mkfs.jffs2 \
+        --root=${IMAGE_ROOTFS} \
+        --faketime \
+        ${KERNEL_EXTRA_CMD} \
+        --compression-mode=size \
+        --output=${DEPLOY_DIR_IMAGE}/image0.jffs2 \
+        ${EXTRA_IMAGECMD}; \
+    "   
+
+IMAGE_CMD_jffs2_prepend = " \
+	rm -Rf ${IMAGE_ROOTFS}/boot/*; \
+	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
+	"
+	
 BLINDSCAN_BINARY = "avl_azbox_blindscan"
 
 EXTRA_IMAGEDEPENDS += " \
