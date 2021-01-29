@@ -7,7 +7,7 @@ MACHINE_KERNEL_PR_append = ".4"
 
 KERNEL_IMAGE_MAXSIZE_azboxhd = "6815744"
 #KERNEL_IMAGE_MAXSIZE_azboxme = "6815744"
-#KERNEL_IMAGE_MAXSIZE_azboxminime = "6815744"
+KERNEL_IMAGE_MAXSIZE_azboxminime = "5015744"
 
 DEPENDS = "genromfs-native virtual/${TARGET_PREFIX}gcc"
 
@@ -62,6 +62,8 @@ do_sizecheck() {
                 fi
         fi
 }
+
+	
 do_sizecheck[dirs] = "${B}"
 
 addtask sizecheck before do_install after do_strip
