@@ -7,7 +7,7 @@ MACHINE_KERNEL_PR_append = ".4"
 
 KERNEL_IMAGE_MAXSIZE_azboxhd = "6815744"
 #KERNEL_IMAGE_MAXSIZE_azboxme = "6815744"
-KERNEL_IMAGE_MAXSIZE_azboxminime = "8815744"
+KERNEL_IMAGE_MAXSIZE_azboxminime = "5015744"
 
 DEPENDS = "genromfs-native virtual/${TARGET_PREFIX}gcc"
 

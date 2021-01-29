@@ -15,7 +15,10 @@ MACHINE_EXTRA_RRECOMMENDS += " \
     azbox-compat \
     kernel-module-cifs \
     "
-
+EXTRA_IMAGEDEPENDS += " \
+    kmod-native \
+    "
+    
 GST_VERSION = "1.0"
 
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix "
@@ -23,7 +26,7 @@ DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix "
 MACHINE_FEATURES += " kernel26 alsa usbhost wifi nl80211 3dtv switchoff lpcm textlcd 32bpp hdtv dvbapi5 dvb-c blindscan-dvbs boxmodel HDMI"
 
 PREFERRED_VERSION_linux-azbox = "3.9.2"
-PREFERRED_VERSION_linux-libc-headers = "5.10"
+PREFERRED_VERSION_linux-libc-headers = "5.1%"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
@@ -58,16 +61,10 @@ IMAGE_CMD_jffs2_prepend = " \
     "   
 
 IMAGE_CMD_jffs2_prepend = " \
-	rm -Rf ${IMAGE_ROOTFS}/boot/*; \
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-	"
+    rm -rf ${IMAGE_ROOTFS}/tmp/*; \
+    "
 	
 BLINDSCAN_BINARY = "avl_azbox_blindscan"
 
-EXTRA_IMAGEDEPENDS += " \
-    kmod \
-    "
-
-
-# Add "MACHINEBUILD" override for recipes
-#MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"
+TARGET_ARCH = "mipsel"
+DEFAULTTUNE = "mips32el"
