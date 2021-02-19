@@ -32,7 +32,6 @@ RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
-	python-sendfile \
 	virtual/enigma2-mediaservice \
 	"
 
@@ -101,10 +100,11 @@ inherit gitpkgv pythonnative
 PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "develop"
+ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
+SRC_URI = "${GITHUB_URI}/openmus/${BPN}.git;branch=${ENIGMA2_BRANCH} \
            file://workaround-for-dns-no-dhcp.patch \
+           file://undefine-macro-HAVE_CONFIG_H.patch \
            "
 
 LDFLAGS_prepend = " -lxml2 "
@@ -116,7 +116,7 @@ FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig upx-compress
 
 PACKAGES =+ "enigma2-fonts"
 PKGV_enigma2-fonts = "2018.08.15"
