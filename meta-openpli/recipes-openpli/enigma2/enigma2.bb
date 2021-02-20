@@ -37,23 +37,21 @@ RRECOMMENDS_${PN} = " \
 	"
 
 PYTHON_RDEPS = " \
+	python-numbers \
 	python-codecs \
 	python-core \
 	python-crypt \
 	python-fcntl \
 	python-lang \
-	python-logging \
 	python-netclient \
 	python-netserver \
-	python-numbers \
 	python-pickle \
-	python-pyusb \
 	python-re \
-	python-service-identity \
 	python-shell \
 	python-threading \
 	python-twisted-core \
 	python-twisted-web \
+	python-utf8-hack \
 	python-xml \
 	python-zlib \
 	python-zopeinterface \
@@ -101,10 +99,11 @@ inherit gitpkgv pythonnative
 PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "develop"
+ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH} \
+SRC_URI = "${GITHUB_URI}/openmus/${BPN}.git;branch=${ENIGMA2_BRANCH} \
            file://workaround-for-dns-no-dhcp.patch \
+           file://undefine-macro-HAVE_CONFIG_H.patch \
            "
 
 LDFLAGS_prepend = " -lxml2 "
