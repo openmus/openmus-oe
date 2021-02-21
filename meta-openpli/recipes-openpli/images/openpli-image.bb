@@ -27,7 +27,6 @@ IMAGE_INSTALL = "\
 	parted \
 	python-ipaddress  \
 	python-netifaces \
-	python-pysmb \
 	sdparm \
 	tuxbox-common \
 	tzdata \

@@ -1,7 +1,7 @@
 Experimental build environment based on OpenPli (unofficial).
 
 -Submodules bitbake, openembedded-core and meta-openembedded from master branch,
--GCC 10.2.0
+-GCC 8.2
 -Glibc 2.32
 -GStreamer 1.18.1
 -Python 2.7.18

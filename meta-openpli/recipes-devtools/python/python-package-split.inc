@@ -1,6 +1,7 @@
 inherit python-dir
 
 PACKAGES =+ " ${PN}-src ${PN}-test"
+PACKAGES =+ " ${PN}-src"
 RDEPENDS_{PN}-src = "${PN}"
 
 SSTATE_DUPWHITELIST += "${STAGING_LIBDIR}/python2.7/site-packages/tests/__init__.py ${STAGING_LIBDIR}/python2.7/site-packages/tests/__init__.pyo"
@@ -23,7 +24,6 @@ FILES_${PN}-src = " \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*.h \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/*.h \
     "
-
 FILES_${PN}-test += " \
     ${PYTHON_SITEPACKAGES_DIR}/test \
     ${PYTHON_SITEPACKAGES_DIR}/tests \
@@ -62,4 +62,17 @@ FILES_${PN}-dbg += " \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*/*/*/*/.debug \
     ${PYTHON_SITEPACKAGES_DIR}/*.egg-info \
+    ${PYTHON_SITEPACKAGES_DIR}/test \
+    ${PYTHON_SITEPACKAGES_DIR}/tests \
+    ${PYTHON_SITEPACKAGES_DIR}/Test \
+    ${PYTHON_SITEPACKAGES_DIR}/Tests \
+    ${PYTHON_SITEPACKAGES_DIR}/_test \
+    ${PYTHON_SITEPACKAGES_DIR}/*/test \
+    ${PYTHON_SITEPACKAGES_DIR}/*/tests \
+    ${PYTHON_SITEPACKAGES_DIR}/*/Test \
+    ${PYTHON_SITEPACKAGES_DIR}/*/Tests \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/test \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/tests \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/Test \
+    ${PYTHON_SITEPACKAGES_DIR}/*/*/Tests \
     "

@@ -32,7 +32,6 @@ RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	hotplug-e2-helper \
 	glibc-gconv-utf-16 \
-	python-sendfile \
 	virtual/enigma2-mediaservice \
 	"
 
@@ -115,7 +114,7 @@ FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-inherit autotools pkgconfig
+inherit autotools pkgconfig upx-compress
 
 PACKAGES =+ "enigma2-fonts"
 PKGV_enigma2-fonts = "2018.08.15"

@@ -7,7 +7,8 @@ PR = "r1"
 
 inherit autotools
 
-SRC_URI = "https://mirror.nl.leaseweb.net/videolan/libdca/${PV}/libdca-${PV}.tar.bz2"
+#SRC_URI = "https://mirror.nl.leaseweb.net/videolan/libdca/${PV}/libdca-${PV}.tar.bz2"
+SRC_URI = "https://download.videolan.org/pub/videolan/libdca/0.0.6/libdca-0.0.6.tar.bz2"
 
 S = "${WORKDIR}/libdca-${PV}"
 
