@@ -1,3 +1,4 @@
+DESCRIPTION = "yEnc module for Python"
 SUMMARY = "yEnc module for Python"
 SECTION = "devel/python"
 DEPENDS = "python"
@@ -7,6 +8,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e673a95e6911049cc1cadf00eac1f759"
 
 SRCNAME = "yenc"
+PR = "ml1"
 
 SRC_URI = "http://www.golug.it/pub/yenc/${SRCNAME}-${PV}.tar.gz"
 S = "${WORKDIR}/${SRCNAME}-${PV}"

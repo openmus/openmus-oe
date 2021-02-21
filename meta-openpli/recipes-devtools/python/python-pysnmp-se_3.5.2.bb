@@ -1,9 +1,13 @@
+DESCRIPTION = "A Pure Python SNMP Package"
 SUMMARY = "A Pure Python SNMP Package"
 SECTION = "devel/python"
 PRIORITY = "optional"
 RDEPENDS_${PN} = "python-core"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://README;beginline=13;endline=14;md5=fe0c3d0cab1e25fcec2777b0a8b8e4bf"
+
+SRCNAME = "pysnmp-se"
+SRC_URI = "http://downloads.sourceforge.net/twistedsnmp/${SRCNAME}-${PV}.tar.gz"
 
 
 SRCNAME = "pysnmp-se"

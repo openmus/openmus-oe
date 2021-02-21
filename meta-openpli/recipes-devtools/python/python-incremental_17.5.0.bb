@@ -1,3 +1,5 @@
+inherit setuptools
+require python-incremental.inc
 SUMMARY = "Incremental library for versions your Python"
 HOMEPAGE = "https://github.com/twisted/incremental"
 DESCRIPTION = "Incremental is a small library that versions your Python projects."

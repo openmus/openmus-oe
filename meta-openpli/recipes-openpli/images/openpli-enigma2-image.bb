@@ -66,7 +66,6 @@ ENIGMA2_PLUGINS = " \
 
 DEPENDS += " \
 	enigma2 \
-	enigma2-pliplugins \
 	enigma2-plugins \
 	"
 

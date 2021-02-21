@@ -36,23 +36,21 @@ RRECOMMENDS_${PN} = " \
 	"
 
 PYTHON_RDEPS = " \
+	python-numbers \
 	python-codecs \
 	python-core \
 	python-crypt \
 	python-fcntl \
 	python-lang \
-	python-logging \
 	python-netclient \
 	python-netserver \
-	python-numbers \
 	python-pickle \
-	python-pyusb \
 	python-re \
-	python-service-identity \
 	python-shell \
 	python-threading \
 	python-twisted-core \
 	python-twisted-web \
+	python-utf8-hack \
 	python-xml \
 	python-zlib \
 	python-zopeinterface \

@@ -12,6 +12,7 @@ inherit distutils gitpkgv
 
 PV = "1.2.1+git${SRCPV}"
 PKGV = "1.2.1+git${GITPKGV}"
+PR = "r0"
 
 DISTUTILS_INSTALL_ARGS = "\
     --root=${D} \
