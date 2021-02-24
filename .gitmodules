@@ -13,3 +13,6 @@
 [submodule "meta-vuplus"]
 	path = meta-vuplus
 	url = https://github.com/vu-plus/meta-vuplus.git
+[submodule "meta-azbox"]
+	path = meta-azbox
+	url = https://github.com/aitchala/meta-azbox.git
